@@ -1,0 +1,19 @@
+{
+  "name": "uebungsverwaltung",
+  "version": "1.0.0",
+  "description": "Digitale Verwaltung für Pfadi-Übungen",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaf212/uebungsverwaltung.git"
+  },
+  "author": "Jan Atzgerstorfer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaf212/uebungsverwaltung/issues"
+  },
+  "homepage": "https://github.com/kaf212/uebungsverwaltung#readme"
+}
