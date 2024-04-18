@@ -3,6 +3,12 @@ const app = express();
 const uebungRoutes = require("./routes/uebung-routes.js");
 const {connect} = require("mongoose");
 const Uebungen = require('./models/uebung-model');
+const cors = require("cors")
+
+// Allow requests from localhost:63342
+app.use(cors({
+    origin: 'http://localhost:63342'
+}));
 
 
 app.use(express.json())
