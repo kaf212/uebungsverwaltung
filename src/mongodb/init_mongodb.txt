@@ -1,13 +1,11 @@
 use uebungsverwaltung
 
-db.createCollection("alleUebungen")
+db.createCollection("uebungen")
 
 db.alleUebungen.insertOne({
     title: "Testübung",
     date: "24-02-2006",
     place: "Wald",
     program: "Dies ist ein Test",
-    people: ["Dini Mueter", "Din Vater"]
+    people: ["Leiter1", "Leiterin2"]
 })
-
-db.alleUebungen.find()
