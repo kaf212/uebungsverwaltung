@@ -12,7 +12,7 @@ app.use(cors({
 
 
 app.use(express.json())
-app.use("/uebungen", uebungRoutes)
+app.use("/api/uebungen", uebungRoutes)
 
 
 // MongoDB connection

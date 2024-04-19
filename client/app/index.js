@@ -13,5 +13,6 @@ document.getElementById("uebForm").addEventListener("submit", (event)=>{
     }
     console.log(newUebungJson)
     postNewUebung(newUebungJson)
+    event.currentTarget.reset()
 })
 
