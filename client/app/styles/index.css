@@ -1,0 +1,10 @@
+
+#uebForm {
+    padding: 0 2.5% 0 2.5%;
+    display: flex;
+    flex-direction: column;
+}
+
+#uebTitle, #uebDate, #uebPeople {
+    width: 50%;
+}
