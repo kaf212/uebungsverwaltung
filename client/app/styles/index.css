@@ -8,3 +8,9 @@
 #uebTitle, #uebDate, #uebPeople {
     width: 50%;
 }
+
+.uebungen-preview {
+    padding: 0 2.5% 0 2.5%;
+    display: flex;
+    flex-direction: column;
+}
