@@ -1,5 +1,6 @@
 const express = require('express');
 const Uebungen = require('../models/uebung-model');
+const mongo = require("mongodb")
 const {json} = require("express");
 const router = express.Router();
 
@@ -7,8 +8,17 @@ const router = express.Router();
 router.get("/", async (req, res) => {
     try {
         const uebungen = await Uebungen.find();
-        console.log(uebungen)
         res.json(uebungen);
+    } catch (err) {
+        res.status(500).json({message: err.message});
+    }
+})
+
+router.get("/:id", async (req, res)=>{
+    try {
+        const uebung = await Uebungen.findOne({"_id": new mongo.ObjectId(req.params.id)});
+        console.log(`found uebung ${uebung}`)
+        res.json(uebung);
     } catch (err) {
         res.status(500).json({message: err.message});
     }

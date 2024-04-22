@@ -1,18 +1,18 @@
 const express = require("express");
-const app = express();
+const server = express();
 const uebungRoutes = require("./routes/uebung-routes.js");
 const {connect} = require("mongoose");
 const Uebungen = require('./models/uebung-model');
 const cors = require("cors")
 
 // Allow requests from localhost:63342
-app.use(cors({
+server.use(cors({
     origin: 'http://localhost:63342'
 }));
 
 
-app.use(express.json())
-app.use("/api/uebungen", uebungRoutes)
+server.use(express.json())
+server.use("/api/uebungen", uebungRoutes)
 
 
 // MongoDB connection
@@ -36,12 +36,18 @@ async function insertTestdata() {
     ]);
 }
 
+/*
 insertTestdata().then(()=>{
     console.log("Testdata inserted")
+})
+ */
+
+server.get("/260124", (req, res)=>{
+    res.send("I.C. 24.02.2006")
 })
 
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
