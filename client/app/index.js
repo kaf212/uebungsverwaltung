@@ -7,6 +7,7 @@ document.getElementById("uebForm").addEventListener("submit", (event)=>{
     const newUebungJson = {
         "title": data.get("title"),
         "date": data.get("date").toLocaleString(),
+        "level": data.get("level"),
         "place": data.get("place"),
         "program": data.get("program"),
         "people": data.getAll("people[]")

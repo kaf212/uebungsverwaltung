@@ -19,13 +19,37 @@ body {
     flex-direction: column;
 }
 
-.uebungen-preview div {
-    background-color: gray;
-    margin: 1% 0 1% 0;
-    border-radius: 10px;
-}
-
 #uebPreviewContainer {
     height: 100vh;
     overflow-y: auto;
+
+}
+
+
+.uebungen-preview div {
+    padding: 0 5px 0 5px;
+    background-color: gray;
+    margin: 1% 0 1% 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.uebungen-preview-text-container * {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+.uebungen-preview-img-container {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.uebungen-preview-img {
+    height: 60px;
 }

@@ -20,7 +20,7 @@ function loadUebungenPreview() {
     Array.from(document.getElementById("pastPreview").querySelectorAll("div")).forEach(ueb => ueb.remove())
     Array.from(document.getElementById("futurePreview").querySelectorAll("div")).forEach(ueb => ueb.remove())
 
-    fetch("http://localhost:3000/api/uebungen").then(res => res.json()).then(res => {
+        fetch("http://localhost:3000/api/uebungen").then(res => res.json()).then(res => {
         res.sort((a, b) => {
             return new Date(b.date) - new Date(a.date);
         });
@@ -38,8 +38,18 @@ function loadUebungenPreview() {
             else {
                 targetPreview = "pastPreview"
             }
-            document.getElementById(targetPreview).rem
-            document.getElementById(targetPreview).innerHTML += `<div>${item.date}: <b><a class="preview-link">${item.title}</a></b><br>${leiterString}<br>Ort: ${item.place}</div>`
+
+            console.log(item)
+
+            let imgSrc = undefined
+
+            if (item.level === "wolf") {
+                imgSrc = "woelfe.png"
+            }
+            else {
+                imgSrc = "pfadis.png"
+            }
+            document.getElementById(targetPreview).innerHTML += `<div><div class="uebungen-preview-text-container"><p>${item.date}: ${item.title}<br>${leiterString}<br>Ort: ${item.place}</p></div> <div class="uebungen-preview-img-container"><img class="uebungen-preview-img" src="../app/img/${imgSrc}" alt=""></div></div>`
             document.getElementById(targetPreview).lastChild.setAttribute("data-id", item._id)
 
         })
