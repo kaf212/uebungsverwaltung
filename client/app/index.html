@@ -13,34 +13,12 @@
 <body>
 <header>
   <nav>
+
   </nav>
 </header>
 
-<main>
-  <div class='container main-container p-5 bg-light'>
-
-    <form action='' id='uebForm' class="">
-      <h3>Neue Übung:</h3>
-      <label for='uebTitle'>Titel:</label><br>
-      <input name='title' type='text' id='uebTitle' class="text-input"><br>
-
-      <label for='uebDate'>Datum:</label><br>
-      <input name='date' type='date' id='uebDate' class="text-input"><br>
-
-      <label for="uebPlace">Ort:</label><br>
-      <input type="text" name="place" id="uebPlace" class="text-input">
-
-      <label for='uebProgram'>Programm:</label><br>
-      <textarea name='program' id='uebProgram' cols='30' rows='10' class="text-input"></textarea><br>
-
-      <label for='uebPeople'>Leitpersonen:</label><br>
-      <select name='people[]' id='uebPeople' multiple>
-        <option value='Leiter1'>Leiter1</option>
-        <option value='Leiterin2'>Leiterin2</option>
-      </select><br><br>
-      <input type='submit'>
-    </form>
-
+<main class="row">
+  <div class="col-3" id="uebPreviewContainer">
     <div class="future-uebungen-preview uebungen-preview mt-5" id="futurePreview">
       <h3>Kommende Übungen:</h3>
     </div>
@@ -48,6 +26,32 @@
     <div class="past-uebungen-preview uebungen-preview mt-5" id="pastPreview">
       <h3>Vergangene Übungen:</h3>
     </div>
+  </div>
+  <div class='col-9 main-container p-5 bg-light'>
+
+    <form action='' id='uebForm' class="">
+      <h3>Neue Übung:</h3>
+      <label for='uebTitle'>Titel:</label><br>
+      <input name='title' type='text' id='uebTitle' class="text-input" required><br>
+
+      <label for='uebDate'>Datum:</label><br>
+      <input name='date' type='date' id='uebDate' class="text-input" required><br>
+
+      <label for="uebPlace">Ort:</label><br>
+      <input type="text" name="place" id="uebPlace" class="text-input" required>
+
+      <label for='uebProgram'>Programm:</label><br>
+      <textarea name='program' id='uebProgram' cols='30' rows='10' class="text-input" required></textarea><br>
+
+      <label for='uebPeople'>Leitpersonen:</label><br>
+      <select name='people[]' id='uebPeople' multiple required>
+        <option value='Leiter1'>Leiter1</option>
+        <option value='Leiterin2'>Leiterin2</option>
+      </select><br><br>
+      <input type='submit'>
+    </form>
+
+
 
   </div>
 </main>

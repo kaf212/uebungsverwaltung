@@ -16,6 +16,10 @@ async function loadSingleUebung(id) {
 
 
 function loadUebungenPreview() {
+    // Remove all elements from Uebungen Previews
+    Array.from(document.getElementById("pastPreview").querySelectorAll("div")).forEach(ueb => ueb.remove())
+    Array.from(document.getElementById("futurePreview").querySelectorAll("div")).forEach(ueb => ueb.remove())
+
     fetch("http://localhost:3000/api/uebungen").then(res => res.json()).then(res => {
         res.sort((a, b) => {
             return new Date(b.date) - new Date(a.date);
@@ -34,6 +38,7 @@ function loadUebungenPreview() {
             else {
                 targetPreview = "pastPreview"
             }
+            document.getElementById(targetPreview).rem
             document.getElementById(targetPreview).innerHTML += `<div>${item.date}: <b><a class="preview-link">${item.title}</a></b><br>${leiterString}<br>Ort: ${item.place}</div>`
             document.getElementById(targetPreview).lastChild.setAttribute("data-id", item._id)
 
