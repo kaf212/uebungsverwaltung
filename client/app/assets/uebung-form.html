@@ -1,0 +1,28 @@
+<form action='' id='uebForm' class="">
+  <h3>Neue Übung:</h3>
+  <label for='uebTitle'>Titel:</label><br>
+  <input name='title' type='text' id='uebTitle' class="text-input" required><br>
+
+  <label for='uebDate'>Datum:</label><br>
+  <input name='date' type='date' id='uebDate' class="text-input" required><br>
+
+  <label for="uebLevel">Stufe:</label><br>
+  <select name="level" id="uebLevel" required>
+    <option value="" disabled selected>Auswählen...</option>
+    <option value="wolf">Wölfe</option>
+    <option value="pfadi">Pfadis</option>
+  </select><br>
+
+  <label for="uebPlace">Ort:</label><br>
+  <input type="text" name="place" id="uebPlace" class="text-input" required><br>
+
+  <label for='uebProgram'>Programm:</label><br>
+  <textarea name='program' id='uebProgram' cols='30' rows='10' class="text-input" required></textarea><br>
+
+  <label for='uebPeople'>Leitpersonen:</label><br>
+  <select name='people[]' id='uebPeople' multiple required>
+    <option value='Leiter1'>Leiter1</option>
+    <option value='Leiterin2'>Leiterin2</option>
+  </select><br><br>
+  <button type="submit">Speichern</button>
+</form>

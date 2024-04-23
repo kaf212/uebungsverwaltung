@@ -14,4 +14,15 @@ function postNewUebung(json) {
     });
 }
 
-export {postNewUebung}
+
+function putNewUebung(json) {
+    fetch(uebURL, {
+        method: "PUT",
+        body: JSON.stringify(json),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    });
+}
+
+export {postNewUebung, putNewUebung}

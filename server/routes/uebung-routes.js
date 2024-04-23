@@ -17,7 +17,6 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res)=>{
     try {
         const uebung = await Uebungen.findOne({"_id": new mongo.ObjectId(req.params.id)});
-        console.log(`found uebung ${uebung}`)
         res.json(uebung);
     } catch (err) {
         res.status(500).json({message: err.message});
@@ -34,6 +33,23 @@ router.post("/", async (req, res) => {
         res.status(500).json({message: err.message});
     }
 })
+
+router.put("/", async (req, res) => {
+    try {
+        console.log(req.body);
+
+        // Delete the original document by ID
+        await Uebungen.findByIdAndDelete(req.body._id);
+
+        // Insert the updated document
+        await Uebungen.insertMany([req.body]);
+
+        res.sendStatus(200);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+        console.error(err);
+    }
+});
 
 
 module.exports = router;
