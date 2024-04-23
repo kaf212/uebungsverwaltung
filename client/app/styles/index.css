@@ -1,0 +1,55 @@
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#uebForm {
+    padding: 0 2.5% 0 2.5%;
+    display: flex;
+    flex-direction: column;
+}
+
+#uebTitle, #uebDate, #uebPeople {
+    width: 50%;
+}
+
+.uebungen-preview {
+    padding: 0 2.5% 0 2.5%;
+    display: flex;
+    flex-direction: column;
+}
+
+#uebPreviewContainer {
+    height: 100vh;
+    overflow-y: auto;
+
+}
+
+
+.uebungen-preview div {
+    padding: 0 5px 0 5px;
+    background-color: gray;
+    margin: 1% 0 1% 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.uebungen-preview-text-container * {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+.uebungen-preview-img-container {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.uebungen-preview-img {
+    height: 60px;
+}
