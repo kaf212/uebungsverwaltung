@@ -1,5 +1,5 @@
-import {postNewUebung} from "../api/send-data.js"
-import {loadUebungenPreview} from "../api/fetch-data.js";
+import {postNewUebung} from "./api/send-data.js"
+import {loadUebungenPreview} from "./api/fetch-data.js";
 
 
 

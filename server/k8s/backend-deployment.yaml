@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uebungsverwaltung-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uebungsverwaltung
+  template:
+    metadata:
+      labels:
+        app: uebungsverwaltung
+    spec:
+      containers:
+        - name: uebungsverwaltung
+          image: ghcr.io/kaf212/uebungsverwaltung:v2
+          ports:
+            - containerPort: 3000
+          env:
+            - name: MONGO_URL
+              value: mongodb://mongo:27017/dev
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  selector:
+    app: uebungsverwaltung
+  ports:
+    - port: 8080
+      targetPort: 3000
+  type: LoadBalancer
+---
