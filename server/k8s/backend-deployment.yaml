@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: uebungsverwaltung-backend
+  name: uebungsverwaltung-node
 spec:
   replicas: 1
   selector:
@@ -14,23 +14,26 @@ spec:
     spec:
       containers:
         - name: uebungsverwaltung
-          image: ghcr.io/kaf212/uebungsverwaltung:v2
+          image: ghcr.io/kaf212/uebungsverwaltung-node:v5
           ports:
             - containerPort: 3000
           env:
-            - name: MONGO_URL
-              value: mongodb://mongo:27017/dev
+            - name: MONGO_USER
+              value: mongouser
+            - name: MONGO_PASSWORD
+              value: mongopassword
+            - name: MONGO_URI
+              value: mongodb://mongo-service.default.svc.cluster.local:27017/dev
           imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-service
+  name: node-service
 spec:
   selector:
     app: uebungsverwaltung
   ports:
-    - port: 8080
+    - port: 3000
       targetPort: 3000
   type: LoadBalancer
----

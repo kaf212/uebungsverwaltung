@@ -1,11 +1,9 @@
-FROM node:10-alpine
+FROM node:20.16-alpine3.19
 LABEL authors="JanAtzgerstorfer"
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
-WORKDIR /home/node/app
-COPY package*.json ./
-USER node
-RUN npm install
-COPY --chown=node:node .. .
-EXPOSE 8080
+WORKDIR /build
+COPY package*.json .
+RUN npm update && npm install -y
+COPY . .
+EXPOSE 3000
 
 CMD [ "node", "server.js" ]

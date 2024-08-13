@@ -13,10 +13,10 @@ server.use(cors({
 
 server.use(express.json())
 server.use("/api/uebungen", uebungRoutes)
-
+const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/uebungsverwaltung';
 
 // MongoDB connection
-connect('mongodb://127.0.0.1:27017/uebungsverwaltung', {
+connect(mongoUri, {
     useNewUrlParser: true
 })
     .then(() => console.log('MongoDB connected'))
