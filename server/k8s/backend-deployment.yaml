@@ -7,10 +7,14 @@ spec:
   selector:
     matchLabels:
       app: uebungsverwaltung
+      tier: backend
+      track: stable
   template:
     metadata:
       labels:
         app: uebungsverwaltung
+        tier: backend
+        track: stable
     spec:
       containers:
         - name: uebungsverwaltung
@@ -33,6 +37,7 @@ metadata:
 spec:
   selector:
     app: uebungsverwaltung
+    tier: backend
   ports:
     - port: 3000
       targetPort: 3000

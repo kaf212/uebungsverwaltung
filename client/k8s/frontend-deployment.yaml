@@ -16,39 +16,28 @@ spec:
     spec:
       containers:
         - name: uebungsverwaltung
-          image: ghcr.io/kaf212/uebungsverwaltung_web:v5
+          image: rg.fr-par.scw.cloud/namespace-uebungsverwaltung/uebungsverwaltung-nginx:v9
           ports:
             - containerPort: 8080
+          volumeMounts:
+            - name: nginx-config-volume
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+      volumes:
+        - name: nginx-config-volume
+          configMap:
+            name: nginx-config
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app: uebungsverwaltung
-  name: frontend-service
+  name: nginx-service
 spec:
-  ports:
-    - name: 8080-tcp
-      port: 8080
-      protocol: TCP
-      targetPort: 8080
   selector:
     app: uebungsverwaltung
-  sessionAffinity: None
-  type: ClusterIP
----
-apiVersion: route.openshift.io/v1
-kind: Route
-metadata:
-  labels:
-    app: uebungsverwaltung
-  name: uebungsverwaltung
-spec:
-  port:
-    targetPort: 8080-tcp
-  to:
-    kind: Service
-    name: frontend-service
-  tls:
-    termination: edge
-    insecureEdgeTerminationPolicy: Redirect
+    tier: frontend
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: LoadBalancer
+
