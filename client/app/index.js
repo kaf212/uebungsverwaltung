@@ -4,21 +4,27 @@ import {loadUebungenPreview} from "./fetch-data.js";
 
 
 function addUebFormEventListener() {
-    document.getElementById("uebForm").addEventListener("submit", (event)=>{
-        event.preventDefault()
-        const data = new FormData(event.currentTarget)
-        const newUebungJson = {
-            "title": data.get("title"),
-            "date": data.get("date").toLocaleString(),
-            "level": data.get("level"),
-            "place": data.get("place"),
-            "program": data.get("program"),
-            "people": data.getAll("people[]")
+    const checkUebForm = setInterval(() => {
+        const uebForm = document.getElementById("uebForm");
+        if (uebForm) {
+            clearInterval(checkUebForm);
+            uebForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+                const data = new FormData(event.currentTarget);
+                const newUebungJson = {
+                    "title": data.get("title"),
+                    "date": new Date(data.get("date")).toLocaleString(),
+                    "level": data.get("level"),
+                    "place": data.get("place"),
+                    "program": data.get("program"),
+                    "people": data.getAll("people[]")
+                };
+                postNewUebung(newUebungJson);
+                event.currentTarget.reset();
+                loadUebungenPreview();
+            });
         }
-        postNewUebung(newUebungJson)
-        event.currentTarget.reset()
-        loadUebungenPreview()
-    })
+    }, 100);
 }
 
 
