@@ -1,5 +1,5 @@
 
-const uebURL = '/api/uebungen';
+const uebURL = 'http:localhost:3000/api/uebungen'; // TODO: change back to /api/...
 //const uebURL = '/uebungen';
 
 
