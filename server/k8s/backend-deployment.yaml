@@ -7,18 +7,14 @@ spec:
   selector:
     matchLabels:
       app: uebungsverwaltung
-      tier: backend
-      track: stable
   template:
     metadata:
       labels:
         app: uebungsverwaltung
-        tier: backend
-        track: stable
     spec:
       containers:
         - name: uebungsverwaltung
-          image: ghcr.io/kaf212/uebungsverwaltung-node:v5
+          image: rg.fr-par.scw.cloud/namespace-uebungsverwaltung/uebungsverwaltung-node:v5
           ports:
             - containerPort: 3000
           env:
@@ -37,8 +33,8 @@ metadata:
 spec:
   selector:
     app: uebungsverwaltung
-    tier: backend
   ports:
-    - port: 3000
+    - protocol: TCP
+      port: 80
       targetPort: 3000
   type: LoadBalancer

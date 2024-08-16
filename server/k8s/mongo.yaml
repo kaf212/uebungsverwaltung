@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: mongodb
-          image: mongo:5.0
+          image: rg.fr-par.scw.cloud/namespace-uebungsverwaltung/uebungsverwaltung-mongo:v1
           ports:
             - containerPort: 27017
           volumeMounts:
