@@ -25,8 +25,8 @@
 </footer>
 
 <script type="module">
-    import {getSingleUebung} from "../../api/fetch-data.js";
-    import {putNewUebung} from "../../api/send-data.js";
+    import {getSingleUebung} from "../fetch-data.js";
+    import {putNewUebung} from "../send-data.js";
 
     const params = new URLSearchParams(window.location.search);
     const uebungId = params.get('id');

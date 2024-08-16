@@ -4,7 +4,7 @@
 async function getSingleUebung(id) {
     let uebung = undefined
 
-    const response = await fetch(`http://localhost:3000/api/uebungen/${id}`);
+    const response = await fetch(`/api/uebungen/${id}`);
     uebung = await response.json();
     return uebung
 }
@@ -20,7 +20,7 @@ function loadUebungenPreview() {
     Array.from(document.getElementById("pastPreview").querySelectorAll("div")).forEach(ueb => ueb.remove())
     Array.from(document.getElementById("futurePreview").querySelectorAll("div")).forEach(ueb => ueb.remove())
 
-        fetch("http://localhost:3000/api/uebungen").then(res => res.json()).then(res => {
+        fetch("/api/uebungen").then(res => res.json()).then(res => {
         res.sort((a, b) => {
             return new Date(b.date) - new Date(a.date);
         });
