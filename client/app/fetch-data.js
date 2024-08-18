@@ -25,7 +25,7 @@ function loadUebungenPreview() {
     Array.from(document.getElementById("pastPreview").querySelectorAll("div")).forEach(ueb => ueb.remove())
     Array.from(document.getElementById("futurePreview").querySelectorAll("div")).forEach(ueb => ueb.remove())
 
-        fetch(`${apiUrl}/uebungen`).then(res => res.json()).then(res => { // TODO: change back to /api/...
+        fetch(`${apiUrl}/uebungen`).then(res => res.json()).then(res => {
         res.sort((a, b) => {
             return new Date(b.date) - new Date(a.date);
         });
@@ -74,7 +74,7 @@ function addPreviewEventListeners() {
     allPreviewUebungElements.forEach(item =>{
         item.addEventListener("click", (event)=>{
             const itemId = event.currentTarget.getAttribute('data-id')
-            window.open(`../app/pages/uebung.html?id=${itemId}`, "_blank") // ChatGPT
+            window.open(`../pages/uebung.html?id=${itemId}`, "_blank") // ChatGPT
         })
     })
 }
