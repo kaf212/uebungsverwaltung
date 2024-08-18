@@ -13,7 +13,7 @@ function addUebFormEventListener() {
                 const data = new FormData(event.currentTarget);
                 const newUebungJson = {
                     "title": data.get("title"),
-                    "date": new Date(data.get("date")).toLocaleString(),
+                    "date": new Date(data.get("date")).toDateString(),
                     "level": data.get("level"),
                     "place": data.get("place"),
                     "program": data.get("program"),
@@ -21,7 +21,10 @@ function addUebFormEventListener() {
                 };
                 postNewUebung(newUebungJson);
                 event.currentTarget.reset();
-                loadUebungenPreview();
+                setTimeout(()=>{
+                    loadUebungenPreview();
+
+                }, 100)
             });
         }
     }, 100);

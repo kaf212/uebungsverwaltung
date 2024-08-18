@@ -1,10 +1,15 @@
+let apiUrl = undefined
 
-
+try {
+    apiUrl = process.env.API_URL
+} catch (err) {
+    apiUrl ="http://localhost:3000/api"
+}
 
 async function getSingleUebung(id) {
     let uebung = undefined
 
-    const response = await fetch(`http:localhost:3000/api/uebungen/${id}`); // TODO: change back to /api/...
+    const response = await fetch(`${apiUrl}/uebungen/${id}`);
     uebung = await response.json();
     return uebung
 }
@@ -20,7 +25,7 @@ function loadUebungenPreview() {
     Array.from(document.getElementById("pastPreview").querySelectorAll("div")).forEach(ueb => ueb.remove())
     Array.from(document.getElementById("futurePreview").querySelectorAll("div")).forEach(ueb => ueb.remove())
 
-        fetch("http://localhost:3000/api/uebungen").then(res => res.json()).then(res => { // TODO: change back to /api/...
+        fetch(`${apiUrl}/uebungen`).then(res => res.json()).then(res => { // TODO: change back to /api/...
         res.sort((a, b) => {
             return new Date(b.date) - new Date(a.date);
         });
