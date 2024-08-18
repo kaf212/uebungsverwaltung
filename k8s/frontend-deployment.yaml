@@ -5,7 +5,7 @@ metadata:
   labels:
     app: uebungsverwaltung
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: uebungsverwaltung
@@ -19,6 +19,9 @@ spec:
           image: rg.fr-par.scw.cloud/namespace-uebungsverwaltung/uebungsverwaltung-nginx:v22
           ports:
             - containerPort: 80
+          env:
+            - name: API_URL
+              value: /api
 ---
 apiVersion: v1
 kind: Service

@@ -1,11 +1,15 @@
+let apiUrl = undefined
 
-const uebURL = '/api/uebungen';
-//const uebURL = '/uebungen';
+try {
+    apiUrl = process.env.API_URL
+} catch (err) {
+    apiUrl ="http://localhost:3000/api"
+}
 
 
 function postNewUebung(json) {
     // Quelle: https://www.freecodecamp.org/news/javascript-post-request-how-to-send-an-http-post-request-in-js/
-    fetch(uebURL, {
+    fetch(`${apiUrl}/uebungen`, {
         method: "POST",
         body: JSON.stringify(json),
         headers: {
@@ -16,7 +20,7 @@ function postNewUebung(json) {
 
 
 function putNewUebung(json) {
-    fetch(uebURL, {
+    fetch(`${apiUrl}/uebungen`, {
         method: "PUT",
         body: JSON.stringify(json),
         headers: {
