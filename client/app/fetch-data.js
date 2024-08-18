@@ -1,10 +1,5 @@
-let apiUrl = undefined
+let apiUrl = "/api"
 
-try {
-    apiUrl = process.env.API_URL
-} catch (err) {
-    apiUrl ="http://localhost:3000/api"
-}
 
 async function getSingleUebung(id) {
     let uebung = undefined

@@ -1,10 +1,4 @@
-let apiUrl = undefined
-
-try {
-    apiUrl = process.env.API_URL
-} catch (err) {
-    apiUrl ="http://localhost:3000/api"
-}
+let apiUrl = "/api"
 
 
 function postNewUebung(json) {

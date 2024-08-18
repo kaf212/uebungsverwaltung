@@ -16,12 +16,9 @@ spec:
     spec:
       containers:
         - name: uebungsverwaltung
-          image: rg.fr-par.scw.cloud/namespace-uebungsverwaltung/uebungsverwaltung-nginx:v22
+          image: rg.fr-par.scw.cloud/namespace-uebungsverwaltung/uebungsverwaltung-nginx:v23
           ports:
             - containerPort: 80
-          env:
-            - name: API_URL
-              value: /api
 ---
 apiVersion: v1
 kind: Service
