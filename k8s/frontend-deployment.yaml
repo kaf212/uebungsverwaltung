@@ -5,7 +5,7 @@ metadata:
   labels:
     app: uebungsverwaltung
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: uebungsverwaltung
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: uebungsverwaltung
-          image: rg.fr-par.scw.cloud/namespace-uebungsverwaltung/uebungsverwaltung-nginx:v23
+          image: rg.fr-par.scw.cloud/namespace-uebungsverwaltung/uebungsverwaltung-nginx:v25
           ports:
             - containerPort: 80
 ---
