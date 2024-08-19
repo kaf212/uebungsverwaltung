@@ -3,14 +3,44 @@ body {
     overflow-y: auto;
 }
 
-#uebForm {
-    padding: 0 2.5% 0 2.5%;
-    display: flex;
-    flex-direction: column;
+.form-container {
+    height: 100%;
 }
 
-#uebTitle, #uebDate, #uebPeople {
-    width: 50%;
+.main-container {
+    height: 100vh;
+}
+
+#uebForm {
+    height: 100%;
+}
+
+.form-content {
+    padding: 0 2.5% 0 2.5%;
+    display: flex;
+    height: 100%;
+}
+
+.form-vertical-separation-div {
+    padding: 1%;
+    height: 100%;
+}
+
+.form-vertical-separation-div-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.text-input {
+    width: 100%;
+}
+
+#uebLevel {
+    width: 100%;
+}
+#uebPeople {
+    width: 100%;
 }
 
 .uebungen-preview {
@@ -20,7 +50,7 @@ body {
 }
 
 #uebPreviewContainer {
-    height: 100vh;
+    height: 120vh;
     overflow-y: auto;
 
 }
@@ -72,4 +102,14 @@ body {
 
 .banner p {
     margin: 0;
+}
+
+nav {
+    background-color: antiquewhite;
+    height: 10vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 900;
+    position: sticky;
 }

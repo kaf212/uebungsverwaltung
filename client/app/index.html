@@ -17,11 +17,10 @@
     (<a href="https://github.com/kaf212/uebungsverwaltung/issues/8">GitHub</a>)</p>
 </div>
 
-<header>
-  <nav>
-
+  <nav style="display: none">
+    <p>hello</p>
   </nav>
-</header>
+
 
 <main class="row">
   <div class="col-3" id="uebPreviewContainer">
@@ -48,13 +47,16 @@
 
 <script>
   // Fetch the HTML content from content.html
-  fetch('./assets/uebung-form.html')
-          .then(response => response.text())
-          .then(html => {
-            // Inject the HTML content into the DOM
-            document.querySelector(".form-container").innerHTML = html;
-          })
-          .catch(error => console.error('Error fetching content:', error));
+  document.addEventListener("DOMContentLoaded", ()=>{
+    document.querySelector(".form-container").innerHTML += `<h3 style="padding-left: 3%">Neue Übung:</h3>`
+    fetch('./assets/uebung-form.html')
+            .then(response => response.text())
+            .then(html => {
+              document.querySelector(".form-container").innerHTML += html;
+            })
+            .catch(error => console.error('Error fetching content:', error));
+  })
+
 </script>
 
 </body>
