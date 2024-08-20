@@ -65,6 +65,16 @@
 
     addArchiveEventListeners()
 
+    // Fetch the HTML content from content.html
+    document.addEventListener("DOMContentLoaded", () => {
+        fetch('./assets/navbar.html')
+            .then(response => response.text())
+            .then(html => {
+                document.querySelector("nav").innerHTML += html;
+            })
+            .catch(error => console.error('Error fetching content:', error));
+    })
+
 </script>
 
 </body>
