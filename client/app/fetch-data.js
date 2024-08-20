@@ -74,4 +74,4 @@ function addPreviewEventListeners() {
     })
 }
 
-export {loadUebungenPreview, getSingleUebung, loadSingleUebung}
+export {loadUebungenPreview, getSingleUebung, loadSingleUebung, addPreviewEventListeners}
