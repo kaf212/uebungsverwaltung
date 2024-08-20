@@ -1,7 +1,7 @@
-# Digitales Aktivitäts-Management Interface
+# eScout
 
 ## Übersicht
-Das DAMI ermöglicht schnelles und effizientes Verwalten von Pfadi-Aktivitäten im Browser.
+Das eScout ermöglicht schnelles und effizientes Verwalten von Pfadi-Aktivitäten im Browser.
 Das gesamte System funktioniert als Web-Applikation und basiert ausschliesslich auf Vanilla-JavaScript.
 
 
