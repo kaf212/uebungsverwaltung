@@ -1,4 +1,4 @@
-# Digitales Aktivitäts-Management Interface (DAMI)
+# Digitales Aktivitäts-Management Interface
 
 ## Übersicht
 Das DAMI ermöglicht schnelles und effizientes Verwalten von Pfadi-Aktivitäten im Browser.
