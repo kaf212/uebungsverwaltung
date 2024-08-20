@@ -38,11 +38,12 @@
             .then(response => response.text())
             .then(async html => {
                 document.querySelector(".main-container div").remove()
-                document.querySelector(".container").innerHTML = html;
-                document.querySelector("h3").innerText = "Übung bearbeiten"
+                document.getElementById("editButton").remove()
+                document.querySelector(".container").innerHTML += `<h3>Übung bearbeiten</h3>`
+                document.querySelector(".container").innerHTML += html;
                 const uebung = await getSingleUebung(uebungId)
                 document.getElementById("uebTitle").value = uebung.title
-                document.getElementById("uebDate").value = uebung.date
+                document.getElementById("uebDate").value = new Date(uebung.date).toISOString().split('T')[0];
                 document.getElementById("uebLevel").value = uebung.level
                 document.getElementById("uebPlace").value = uebung.place
                 document.getElementById("uebProgram").value = uebung.program
@@ -61,7 +62,7 @@
                     }
                     putNewUebung(newUebungJson)
                     document.getElementById("uebForm").reset()
-                    //window.location = "../index.html"
+                    window.location = "../index.html"
                 })
             })
             .catch(error => console.error('Error fetching content:', error));

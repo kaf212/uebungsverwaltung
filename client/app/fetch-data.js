@@ -69,7 +69,7 @@ function addPreviewEventListeners() {
     allPreviewUebungElements.forEach(item =>{
         item.addEventListener("click", (event)=>{
             const itemId = event.currentTarget.getAttribute('data-id')
-            window.open(`../pages/uebung.html?id=${itemId}`, "_blank") // ChatGPT
+            window.location = `./pages/uebung.html?id=${itemId}`
         })
     })
 }

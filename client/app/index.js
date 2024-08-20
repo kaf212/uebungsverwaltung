@@ -13,7 +13,7 @@ function addUebFormEventListener() {
                 const data = new FormData(event.currentTarget);
                 const newUebungJson = {
                     "title": data.get("title"),
-                    "date": new Date(data.get("date")).toDateString(),
+                    "date": new Date(data.get("date")).toLocaleDateString(),
                     "level": data.get("level"),
                     "place": data.get("place"),
                     "program": data.get("program"),
