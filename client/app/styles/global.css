@@ -1,4 +1,4 @@
-input, select, button {
+input, select {
     border-radius: 10px;
     padding: 5px;
     border: 1px solid;
@@ -8,4 +8,16 @@ input, select, button {
     border-radius: 10px;
     padding: 5px;
     border: 1px solid;
+}
+
+button {
+    border-radius: 10px;
+    padding: 5px;
+    border: none;
+    background-color: #8B3A3A;
+    color: white;
+}
+
+button:hover {
+    background-color: rgba(139,58,58, 0.9);
 }

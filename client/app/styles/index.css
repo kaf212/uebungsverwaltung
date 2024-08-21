@@ -48,16 +48,24 @@ body {
     flex-direction: column;
 }
 
+. {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
 #uebPreviewContainer {
     height: 90vh;
     overflow-y: auto;
 
 }
 
+.uebungen-preview-uebung-container {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+
+}
 
 .uebungen-preview div {
     padding: 0 5px 0 5px;
-    background-color: gray;
+    background-color: #f6f7f8;
     margin: 1% 0 1% 0;
     border-radius: 10px;
     display: flex;
@@ -104,7 +112,7 @@ body {
 }
 
 nav {
-    background-color: antiquewhite;
+    background-color: #8B3A3A;
     height: 10vh;
     top: 0;
     left: 0;
@@ -112,6 +120,7 @@ nav {
     z-index: 900;
     position: sticky;
     display: flex;
+    color: white;
 }
 
 .nav-div {
@@ -126,12 +135,14 @@ nav {
 .nav-img {
     height: 100%;
     padding: 0.5%;
+    cursor: pointer;
 }
 
 .nav-title {
-    font-family: "";
+    font-family: "Segoe UI Semibold";
     font-size: 1.75rem;
     display: inline-block;
+    cursor: pointer;
 }
 
 .nav-option {
@@ -148,5 +159,6 @@ nav {
 }
 
 .nav-option:hover {
-    background-color: darkgrey;
+    background-color: #9a4f4f;
+    color: rgba(255,255,255,0.75)
 }

@@ -49,7 +49,7 @@ function loadUebungenPreview() {
             else {
                 imgSrc = "pfadis.png"
             }
-            document.getElementById(targetPreview).innerHTML += `<div><div class="uebungen-preview-text-container"><p>${item.date}: ${item.title}<br>${leiterString}<br>Ort: ${item.place}</p></div> <div class="uebungen-preview-img-container"><img class="uebungen-preview-img" src="./img/${imgSrc}" alt=""></div></div>`
+            document.getElementById(targetPreview).innerHTML += `<div class="uebungen-preview-uebung-container"><div class="uebungen-preview-text-container"><p>${item.date}: ${item.title}<br>${leiterString}<br>Ort: ${item.place}</p></div> <div class="uebungen-preview-img-container"><img class="uebungen-preview-img" src="./img/${imgSrc}" alt=""></div></div>`
             document.getElementById(targetPreview).lastChild.setAttribute("data-id", item._id)
 
         })
