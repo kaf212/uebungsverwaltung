@@ -1,4 +1,4 @@
-let apiUrl = "/api"
+let apiUrl = "http://localhost:3000/api" // TODO: change back to /api
 
 
 async function getSingleUebung(id) {
@@ -49,7 +49,7 @@ function loadUebungenPreview() {
             else {
                 imgSrc = "pfadis.png"
             }
-            document.getElementById(targetPreview).innerHTML += `<div><div class="uebungen-preview-text-container"><p>${item.date}: ${item.title}<br>${leiterString}<br>Ort: ${item.place}</p></div> <div class="uebungen-preview-img-container"><img class="uebungen-preview-img" src="../app/img/${imgSrc}" alt=""></div></div>`
+            document.getElementById(targetPreview).innerHTML += `<div class="uebungen-preview-uebung-container"><div class="uebungen-preview-text-container"><p>${item.date}: ${item.title}<br>${leiterString}<br>Ort: ${item.place}</p></div> <div class="uebungen-preview-img-container"><img class="uebungen-preview-img" src="./img/${imgSrc}" alt=""></div></div>`
             document.getElementById(targetPreview).lastChild.setAttribute("data-id", item._id)
 
         })
@@ -69,9 +69,9 @@ function addPreviewEventListeners() {
     allPreviewUebungElements.forEach(item =>{
         item.addEventListener("click", (event)=>{
             const itemId = event.currentTarget.getAttribute('data-id')
-            window.open(`../pages/uebung.html?id=${itemId}`, "_blank") // ChatGPT
+            window.location = `./pages/uebung.html?id=${itemId}`
         })
     })
 }
 
-export {loadUebungenPreview, getSingleUebung, loadSingleUebung}
+export {loadUebungenPreview, getSingleUebung, loadSingleUebung, addPreviewEventListeners}

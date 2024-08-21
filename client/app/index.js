@@ -30,10 +30,27 @@ function addUebFormEventListener() {
     }, 100);
 }
 
+function displayInfoBanner() {
+    if (! localStorage.getItem("acknowledge_info_banner")) {
+        document.querySelector(".banner").style.display = "block"
+    }
+    else {
+        document.querySelector(".banner").style.display = "none"
+
+
+}}
+
+document.getElementById("infoBannerCloseButton").addEventListener("click", event => {
+    event.currentTarget.parentElement.parentElement.remove()
+    localStorage.setItem("acknowledge_info_banner", true)
+})
 
 addUebFormEventListener()
 
 loadUebungenPreview()
+
+displayInfoBanner()
+
 
 
 

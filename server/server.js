@@ -42,8 +42,8 @@ insertTestdata().then(()=>{
 })
  */
 
-server.get("/260124", (req, res)=>{
-    res.send("I.C. 24.02.2006")
+server.get("/api/260124", (req, res)=>{
+    res.send("I.C. <3")
 })
 
 
