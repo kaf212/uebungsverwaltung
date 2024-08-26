@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: uebungsverwaltung
-          image: rg.fr-par.scw.cloud/namespace-uebungsverwaltung/uebungsverwaltung-nginx:v36
+          image: rg.fr-par.scw.cloud/namespace-uebungsverwaltung/uebungsverwaltung-nginx:v39
           ports:
             - containerPort: 80
 ---
@@ -25,28 +25,13 @@ kind: Ingress
 metadata:
   name: nginx-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/add-base-uri: "true" # Optional if you need base URI to be added
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
     - http:
         paths:
-          - path: /assets(/|$)(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: nginx-service
-                port:
-                  number: 80
-          - path: /css(/|$)(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: nginx-service
-                port:
-                  number: 80
-          - path: /.*
+          - path: /
             pathType: Prefix
             backend:
               service:
