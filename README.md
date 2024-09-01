@@ -1,4 +1,7 @@
 # eScout
+## ⚠️ Ankündigung:
+Aufgrund anhaltender Probleme mit dem Deployment auf Scaleway (siehe #11, #12 und #13 sowie die Branch `API_connectivity_fix`) werden die Arbeiten an potenziellen Lösungen vorübergehend eingestellt, um anstelle dessen die Applikation selbst weiterzuentwickeln.
+Es ist nicht klar, ob das endgültige Deployment auch auf Scaleway stattfinden wird, da der Involvierungsgrad der Scaleway Infrastruktur in den genannten Problemen nicht bekannt ist.
 
 ## Übersicht
 Das eScout ermöglicht schnelles und effizientes Verwalten von Pfadi-Aktivitäten im Browser.
