@@ -8,6 +8,6 @@ kubectl apply -f ./mongovolume.yaml
 kubectl apply -f ./mongo.yaml
 kubectl apply -f ./frontend-deployment.yaml
 kubectl apply -f ./backend-deployment.yaml
-kubectl get pods
-kubectl get svc --watch
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+kubectl get svc -n ingress-nginx --watch
 echo "done"

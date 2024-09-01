@@ -16,9 +16,28 @@ spec:
     spec:
       containers:
         - name: uebungsverwaltung
-          image: rg.fr-par.scw.cloud/namespace-uebungsverwaltung/uebungsverwaltung-nginx:v25
+          image: rg.fr-par.scw.cloud/namespace-uebungsverwaltung/uebungsverwaltung-nginx:v48
           ports:
             - containerPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-service
+                port:
+                  number: 80
 ---
 apiVersion: v1
 kind: Service
@@ -28,6 +47,7 @@ spec:
   selector:
     app: uebungsverwaltung
   ports:
-    - port: 80
+    - protocol: TCP
+      port: 80
       targetPort: 80
-  type: LoadBalancer
+
