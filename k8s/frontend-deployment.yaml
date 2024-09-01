@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: uebungsverwaltung
-          image: rg.fr-par.scw.cloud/namespace-uebungsverwaltung/uebungsverwaltung-nginx:v39
+          image: rg.fr-par.scw.cloud/namespace-uebungsverwaltung/uebungsverwaltung-nginx:v48
           ports:
             - containerPort: 80
 ---

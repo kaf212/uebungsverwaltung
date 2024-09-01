@@ -8,6 +8,4 @@ kubectl apply -f ./mongovolume.yaml
 kubectl apply -f ./mongo.yaml
 kubectl apply -f ./frontend-deployment.yaml
 kubectl apply -f ./backend-deployment.yaml
-kubectl get pods
-kubectl get svc --watch
 echo "done"
