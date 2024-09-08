@@ -6,20 +6,18 @@ const router = express.Router();
 
 
 // All endpoints need to be listed before "/" and "/:id" !
+
 router.get('/search', async (req, res) => {
     const searchTerm = req.query.q;
 
-    console.log(searchTerm); // Sanity check
-
     try {
         const results = await Uebungen.find({
-            "title": { $regex: new RegExp(searchTerm, 'i') }, // Case-insensitive regex on 'title'
-            "_id": { $exists: true } // Ensuring it's not querying on `_id`
+            "title": { $regex: new RegExp(searchTerm, 'i') }
         });
 
         res.json(results);
     } catch (err) {
-        res.status(501)
+        res.status(500).json({message: err.message});
     }
 });
 
