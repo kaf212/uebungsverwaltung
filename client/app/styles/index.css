@@ -55,7 +55,7 @@ body {
 #uebPreviewContainer {
     height: 90vh;
     overflow-y: auto;
-
+    padding-top: 3rem;
 }
 
 .uebungen-preview-uebung-container {
@@ -161,4 +161,25 @@ nav {
 .nav-option:hover {
     background-color: #9a4f4f;
     color: rgba(255,255,255,0.75)
+}
+
+.preview-searchbar-container {
+    width: 100%;
+    padding: 0 2.5% 0 2.5%;
+    position: relative;
+    display: inline-block;
+
+}
+
+.searchbar {
+    width: 100%;
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Prevents the icon from interfering with input */
+    font-size: 18px;
 }

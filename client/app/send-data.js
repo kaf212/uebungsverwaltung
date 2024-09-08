@@ -1,4 +1,4 @@
-let apiUrl = "/api"
+let apiUrl = "http://localhost:3000/api"
 
 
 function postNewUebung(json) {

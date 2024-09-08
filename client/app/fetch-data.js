@@ -1,5 +1,17 @@
-let apiUrl = "/api"
+let apiUrl = "http://localhost:3000/api"
 
+async function getAllUebungen() {
+    let json = undefined
+
+    const response = await fetch(`${apiUrl}/uebungen`);
+    json = await response.json();
+    return json
+}
+
+async function searchUebung(query) {
+    const response = await fetch(`${apiUrl}/uebungen/search?q=${encodeURIComponent(query)}`);
+    return await response.json()
+}
 
 async function getSingleUebung(id) {
     let uebung = undefined
@@ -24,36 +36,47 @@ function loadUebungenPreview() {
         res.sort((a, b) => {
             return new Date(b.date) - new Date(a.date);
         });
-        res.forEach(item =>{
-
-            let leiterString = "Leitpersonen: "
-            leiterString += item.people[0]
-            for (let i=1;i<item.people.length;i++) {
-                leiterString += `, ${item.people[i]}`
-            }
-            let targetPreview = undefined
-            if (new Date(item.date) > new Date()) {
-                targetPreview = "futurePreview"
-            }
-            else {
-                targetPreview = "pastPreview"
-            }
-
-            console.log(item)
-
-            let imgSrc = undefined
-
-            if (item.level === "wolf") {
-                imgSrc = "woelfe.png"
-            }
-            else {
-                imgSrc = "pfadis.png"
-            }
-            document.getElementById(targetPreview).innerHTML += `<div class="uebungen-preview-uebung-container"><div class="uebungen-preview-text-container"><p>${item.date}: ${item.title}<br>${leiterString}<br>Ort: ${item.place}</p></div> <div class="uebungen-preview-img-container"><img class="uebungen-preview-img" src="./img/${imgSrc}" alt=""></div></div>`
-            document.getElementById(targetPreview).lastChild.setAttribute("data-id", item._id)
-
-        })
+        generateAndInsertPreviewHTML(res, false)
         addPreviewEventListeners()
+    })
+}
+
+function loadSearchPreview(searchTerm) {
+    searchUebung(searchTerm).then(data => {
+        generateAndInsertPreviewHTML(data, true)
+    })
+}
+
+function generateAndInsertPreviewHTML(json, isForSearchPreview) {
+    json.forEach(item =>{
+
+        let leiterString = "Leitpersonen: "
+        leiterString += item.people[0]
+        for (let i=1;i<item.people.length;i++) {
+            leiterString += `, ${item.people[i]}`
+        }
+        let targetPreview = undefined
+        if (isForSearchPreview) {
+            targetPreview = "searchPreview"
+        }
+        else if (new Date(item.date) > new Date()) {
+            targetPreview = "futurePreview"
+        }
+        else {
+            targetPreview = "pastPreview"
+        }
+
+        let imgSrc = undefined
+
+        if (item.level === "wolf") {
+            imgSrc = "woelfe.png"
+        }
+        else {
+            imgSrc = "pfadis.png"
+        }
+        document.getElementById(targetPreview).innerHTML += `<div class="uebungen-preview-uebung-container"><div class="uebungen-preview-text-container"><p>${item.date}: ${item.title}<br>${leiterString}<br>Ort: ${item.place}</p></div> <div class="uebungen-preview-img-container"><img class="uebungen-preview-img" src="./img/${imgSrc}" alt=""></div></div>`
+        document.getElementById(targetPreview).lastChild.setAttribute("data-id", item._id)
+
     })
 }
 
@@ -74,4 +97,4 @@ function addPreviewEventListeners() {
     })
 }
 
-export {loadUebungenPreview, getSingleUebung, loadSingleUebung, addPreviewEventListeners}
+export {loadUebungenPreview, getSingleUebung, loadSingleUebung, addPreviewEventListeners, getAllUebungen, loadSearchPreview}
