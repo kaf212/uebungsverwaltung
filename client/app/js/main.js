@@ -1,6 +1,5 @@
 import {postNewUebung} from "../send-data.js"
-import {loadUebungenPreview} from "../fetch-data.js";
-
+import {loadUebungenPreview, getAllUebungen, loadSearchPreview} from "../fetch-data.js";
 
 
 function addUebFormEventListener() {
@@ -21,7 +20,7 @@ function addUebFormEventListener() {
                 };
                 postNewUebung(newUebungJson);
                 event.currentTarget.reset();
-                setTimeout(()=>{
+                setTimeout(() => {
                     loadUebungenPreview();
 
                 }, 100)
@@ -30,15 +29,24 @@ function addUebFormEventListener() {
     }, 100);
 }
 
+function addSearchbarEventlistener() {
+    document.getElementById("previewSearchbar").addEventListener("input", (event) => {
+        document.getElementById("searchPreview").innerHTML = ""
+        if (event.target.value !== "") {
+            loadSearchPreview(event.target.value)
+        }
+    })
+}
+
 function displayInfoBanner() {
-    if (! localStorage.getItem("acknowledge_info_banner")) {
+    if (!localStorage.getItem("acknowledge_info_banner")) {
         document.querySelector(".banner").style.display = "block"
-    }
-    else {
+    } else {
         document.querySelector(".banner").style.display = "none"
 
 
-}}
+    }
+}
 
 document.getElementById("infoBannerCloseButton").addEventListener("click", event => {
     event.currentTarget.parentElement.parentElement.remove()
@@ -46,6 +54,8 @@ document.getElementById("infoBannerCloseButton").addEventListener("click", event
 })
 
 addUebFormEventListener()
+
+addSearchbarEventlistener()
 
 loadUebungenPreview()
 

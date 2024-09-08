@@ -4,6 +4,26 @@ const mongo = require("mongodb")
 const {json} = require("express");
 const router = express.Router();
 
+
+// All endpoints need to be listed before "/" and "/:id" !
+
+router.get('/search', async (req, res) => {
+    const searchTerm = req.query.q;
+
+    try {
+        const results = await Uebungen.find({
+            $or: [
+                { "title": { $regex: new RegExp(searchTerm, 'i') } },
+                { "date": { $regex: new RegExp(searchTerm, 'i') } }
+            ]
+        });
+
+        res.json(results);
+    } catch (err) {
+        res.status(500).json({message: err.message});
+    }
+});
+
 // Get all Uebungen
 router.get("/", async (req, res) => {
     try {
@@ -22,6 +42,8 @@ router.get("/:id", async (req, res)=>{
         res.status(500).json({message: err.message});
     }
 })
+
+
 
 // Create new Uebung
 router.post("/", async (req, res) => {
