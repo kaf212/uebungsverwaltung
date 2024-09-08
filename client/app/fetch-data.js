@@ -44,6 +44,9 @@ function loadUebungenPreview() {
 function loadSearchPreview(searchTerm) {
     searchUebung(searchTerm).then(data => {
         generateAndInsertPreviewHTML(data, true)
+        if (document.getElementById("searchPreview").innerHTML === "") {
+            document.getElementById("searchPreview").innerHTML = "<p>Keine Resultate gefunden.</p>"
+        }
     })
 }
 

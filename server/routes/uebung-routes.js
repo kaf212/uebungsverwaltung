@@ -12,7 +12,10 @@ router.get('/search', async (req, res) => {
 
     try {
         const results = await Uebungen.find({
-            "title": { $regex: new RegExp(searchTerm, 'i') }
+            $or: [
+                { "title": { $regex: new RegExp(searchTerm, 'i') } },
+                { "date": { $regex: new RegExp(searchTerm, 'i') } }
+            ]
         });
 
         res.json(results);
