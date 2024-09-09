@@ -9,3 +9,7 @@ input, select, button{
     padding: 5px;
     border: 1px solid;
 }
+
+body {
+    margin: 0;
+}
